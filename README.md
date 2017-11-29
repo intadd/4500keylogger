@@ -11,7 +11,7 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 ## intadd (leader)
 create web site for manger of keylogger. and server shell script setting, compile C,Python in linux.   
   <p align="left">
-  <img width="460" height="300" src="./img/2.jpg">
+ <img width="360" height="300" src="./img/2.jpg">
 </p>
 
   
@@ -21,13 +21,15 @@ create web site for manger of keylogger. and server shell script setting, compil
 ## mij9929, S686 
   
 create C keylogger file, and Module sending txt file to server  
-![image-title-here](./img/1.jpg){width="320px" height="320px"}
+  <p align="left">
+  <img width="360" height="300" src="./img/1.jpg">
+</p>
 
 
 </div>  
 ## Phasekiller
   
 Create Register as a starting program for the victim computer in keylogger  
-<div style= "height:'320px' width:'320px'>  
-<a href="./img/3.jpg"> <img src="./img/3.jpg" align="left" height="320px" width="320px"></a>  
-</div>
+  <p align="left">
+  <img width="360" height="300" src="./img/3.jpg">
+</p>
