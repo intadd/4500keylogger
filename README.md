@@ -20,7 +20,7 @@ create web site for manger of keylogger. and server shell script setting, compil
 ## mij9929, S686 
   
 create C keylogger file, and Module sending txt file to server  
-![image-title-here](./img/1.jpg){:class="img-responsive"}
+![image-title-here](./img/1.jpg =100x100)
 
 
 </div>  
