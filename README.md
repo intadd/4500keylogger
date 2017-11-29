@@ -20,8 +20,9 @@ create web site for manger of keylogger. and server shell script setting, compil
 ## mij9929, S686 
   
 create C keylogger file, and Module sending txt file to server  
-<div style= "height:'320px' width:'320px'>
-<a href="./img/1.jpg"> <img src='./img/1.jpg' align="left" height="320px" width="320px"></a>
+![mij](./img/1.jpg | width=100)
+
+
 </div>  
 ## Phasekiller
   
