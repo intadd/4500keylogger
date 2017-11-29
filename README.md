@@ -10,7 +10,9 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 
 ## intadd (leader)
 create web site for manger of keylogger. and server shell script setting, compile C,Python in linux.   
-  <img align="left" width="100" height="100" src="./img/2.jpg">
+  <p align="left">
+  <img width="460" height="300" src="./img/2.jpg">
+</p>
 
   
   
