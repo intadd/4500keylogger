@@ -8,31 +8,25 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
   * Register as Startup Program.
   * Send key your server.
     * Use to referer
-* auto install web page for keyLogger
+* web for keyLogger
   * Back-end
     * Checking the real-time key value
     * Save real-time transmitted keys
   * Front-end
     * view page PC or Mobile
     
-  
-
-  
-
-Use C and Python to create the Keylogger.exe file. Project of the Keylogger distributed through Apache2 is the project to output the transmitted data in real time.
-
 # Member
 
 ## intadd (leader)
 
-### create web site for manger of keylogger. and server shell script setting, compile C,Python in linux.   
+### create web site for manger of keylogger. and server shell script setting, convert CPP to exe in relinux.   
   <p align="left">
  <img width="360" height="300" src="./img/2.jpg">
 </p>  
   
 ## mij9929, S686 
   
-### create C keylogger file, and Module sending txt file to server  
+### create Cpp keylogger file, and Module sending txt file to server  
   <p align="left">
   <img width="360" height="300" src="./img/1.jpg">
 </p>
