@@ -14,34 +14,7 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
     * Save real-time transmitted keys
   * Front-end
     * view page PC or Mobile
-    
-# Member
-
-## intadd (leader)
-
-### create web site for manger of keylogger. and server shell script setting, convert CPP to exe in relinux.   
-  <p align="left">
- <img width="360" height="300" src="./img/2.jpg">
-</p>  
-  
-## mij9929, S686 
-  
-### create Cpp keylogger file, and Module sending txt file to server  
-  <p align="left">
-  <img width="360" height="300" src="./img/1.jpg">
-</p>
-
-## Phasekiller
-  
-### Create Register as a starting program for the victim computer in keylogger  
-  <p align="left">
-  <img width="360" height="300" src="./img/3.jpg">
-</p>
-
-
-
-
-
+   
 # Screenshots
 ### 1. main image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
 <p align="left">
