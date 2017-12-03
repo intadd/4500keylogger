@@ -34,10 +34,26 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 
 
 # Screenshots
-### 1. main image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
+#### 1. main image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
 ![main](./img/main.PNG)
 
-### 2. log image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
+#### 2. log image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
 ![log](./img/log1.PNG)
+
+
+# Installation (Server)
+
+## Installer 
+* Environment
+** Ubuntu 16.04.3 LTS
+
+1.Install Ubuntu
+
+2.Download here
+`wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh`
+
+3. Set Server_url
+
+
 
 
