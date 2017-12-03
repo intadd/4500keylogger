@@ -36,3 +36,8 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 # Screenshots
 
 ![main](./img/main.PNG)
+
+
+![log](./img/log.PNG)
+
+
