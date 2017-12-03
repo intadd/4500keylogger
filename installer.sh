@@ -20,8 +20,8 @@ echo "[*] update system and install dependencies"
 
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y git apache2 php libapache2-php
-
+sudo apt install -y git apache2 php libapache2-mod-php
+sudo apt-get install mingw-w64
 #protect dirctory listing
 sed -i 's/Indexes//' /etc/apache2/apache2.conf
 
@@ -38,15 +38,9 @@ sudo service apache2 restart
 
 #install module for make from .exe file to C Langue and Python
 
-sudo apt install -y python-pip mingw-w64
-pip install requests
-pip install pyinstaller
-
 #git clone 
 
 
 
 
 #i686-w64-mingw32-gcc test.c -o hello.exe -lws2_32
- 
-
