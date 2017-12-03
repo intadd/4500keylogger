@@ -8,13 +8,10 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
   * Register as Startup Program.
   * Send key your server.
     * Use to referer
-  
 * auto install web page for keyLogger
   * Back-end
-  
     * Checking the real-time key value
     * Save real-time transmitted keys
-
 * Front-end
     * view page PC or Mobile
     
