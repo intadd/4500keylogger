@@ -45,7 +45,7 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 </p>
 
 
-#### 3. phone view (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
+### 3. phone view (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
 <p align="left">
   <img width="360" height="700" src="./img/phone.jpg">
 </p>
@@ -60,7 +60,6 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 
 2.Download here
 `wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh`
-
 3. Set Server_url
 
 
