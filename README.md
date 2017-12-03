@@ -35,13 +35,21 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 
 # Screenshots
 #### 1. main image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
-![main](./img/main1.PNG)
+<p align="left">
+  <img width="360" height="300" src="./img/main.PNG">
+</p>
 
 #### 2. log image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
-![log](./img/log2.PNG)
+<p align="left">
+  <img width="360" height="300" src="./img/log2.PNG">
+</p>
+
 
 #### 3. phone view (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
-![phone](./img/phone.jpg)
+<p align="left">
+  <img width="360" height="300" src="./img/phone.jpg">
+</p>
+
 # Installation (Server)
 
 ### Installer 
