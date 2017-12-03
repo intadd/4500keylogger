@@ -38,6 +38,6 @@ Use C and Python to create the Keylogger.exe file. Project of the Keylogger dist
 ![main](./img/main.PNG)
 
 
-![log](./img/log.PNG)
+![log](./img/log1.PNG)
 
 
