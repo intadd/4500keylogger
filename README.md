@@ -5,9 +5,9 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 
 * Make KeyLogger
   * Saves all values entered by the user to the victim's local computer.
-  * Register as Startup Program
-  * Send key your server
-     * Use to referer
+  * Register as Startup Program.
+  * Send key your server.
+    * Use to referer
   
 * auto install web page for keyLogger
   * Back-end
