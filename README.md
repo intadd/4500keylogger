@@ -65,7 +65,7 @@ server_ip='' #ex)33.33.33.33
 4. Run installer.  </br>`bash installer.sh`</br>
 
 5. check your web server </br>
-brwoser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
+browser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
 
 6. Download your Keylogger.cpp </br>```http://yourserver/4500/4500keylogger.cpp```</br>
 
@@ -73,4 +73,21 @@ brwoser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
 
 
 
+   
+# Fuction review
+### 1. 4500keylogger.cpp 
+<p align="left">
+  <img width="760" height="400" src="./img/cpp.PNG">
+</p>
+
+### 2. (web)recve.php (/4500/recve.cpp)
+<p align="left">
+  <img width="760" height="400" src="./img/recve.PNG">
+</p>
+
+
+### 3. (web)viewer  (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
+<p align="left">
+  <img width="360" height="700" src="./img/view.PNG">
+</p>
 
