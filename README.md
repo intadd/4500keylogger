@@ -88,6 +88,6 @@ browser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
 
 ### 3. (web)viewer  (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
 <p align="left">
-  <img width="760" height="760" src="./img/view.PNG">
+  <img width="960" height="760" src="./img/view.PNG">
 </p>
 
