@@ -12,8 +12,10 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
   * Back-end
     * Checking the real-time key value
     * Save real-time transmitted keys
+    * make Keylogger.cpp for your server 
   * Front-end
     * view page PC or Mobile
+   
    
 # Screenshots
 ### 1. main image (/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php)
@@ -48,7 +50,7 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 
 1.Install Ubuntu
 
-2.Download here
+2.Download here </br>
 `wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh`
 3. Set Server_url
 
