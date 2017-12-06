@@ -1,6 +1,6 @@
 # 4500keylogger
-* keylogger to operate at windows. </br>
-* and Keylogger manger using the apache2+php7 </br>
+* Keylogger to operate at windows. </br>
+* Keylogger manger (apache2+php7) </br>
 * Auto install Keylogger & Keylogger Manger</br>
 </br>
 
