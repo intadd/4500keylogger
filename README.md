@@ -91,6 +91,12 @@ browser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
   <img width="760" height="400" src="./img/cpp.PNG">
 </p></br>
 
+### 2. Save fuction in 4500keylogger.cpp
+<p align="left">
+  <img width="700" height="800" src="./img/32.png">
+</p>
+
+
 ### 2. send fuction in 4500keylogger.cpp
 <p align="left">
   <img width="660" height="400" src="./img/send.PNG">
