@@ -48,9 +48,9 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 * Environment
 ** Ubuntu 16.04.3 LTS
 
-1.Install Ubuntu
+1. Install Ubuntu
 
-2.Download here </br>
+2. Download here </br>
 `wget https://raw.githubusercontent.com/intadd/4500keylogger/master/install.sh -O install.sh` </br>
 
 3. Set Server_url in installer.sh  </br>
@@ -62,7 +62,7 @@ Open source project, Create a keylogger to operate at windows. and Manage Wireta
 server_ip='' #ex)33.33.33.33
 
 ````
-4.Run installer.  </br>`bash installer.sh`</br>
+4. Run installer.  </br>`bash installer.sh`</br>
 
 5. check your web server </br>
 brwoser open `http://yourserver/4500/05f7a6edc6d63e4f97353f87fbb3d18d.php`</br>
